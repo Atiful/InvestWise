@@ -42,7 +42,7 @@ function Nav() {
                         className="nav-link" to = "/">Dashboard</NavLink>
                     </li> }
 
-                    {user && 
+                    {isLogin && 
                     <li className="nav-item">
                         <NavLink  style={({ isActive }) => ({
                             color: isActive ? '#8dc6ff' : '#34495e',
@@ -51,7 +51,7 @@ function Nav() {
                         className="nav-link" to="/Orders">Orders</NavLink>
                     </li> }
 
-                     {user && 
+                     {isLogin && 
                     <li className="nav-item">
                         <NavLink style={({ isActive }) => ({
                             color: isActive ? '#8dc6ff' : '#34495e',
@@ -68,7 +68,7 @@ function Nav() {
                           {!user && <NavLink className="dropdown-item" to = "/signUp">signup</NavLink>}
                           {!user && <NavLink className="dropdown-item" to = "/signIn">LoginIn</NavLink>}
                             
-                          {user && <button className='btn btn-sm dropdown-item' onClick={handleLogout}>Logout</button> }
+                          {isLogin && <button className='btn btn-sm dropdown-item' onClick={handleLogout}>Logout</button> }
                         </div>
                     </li>
 
