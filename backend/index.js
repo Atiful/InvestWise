@@ -114,7 +114,9 @@ app.use("/holding", holdingRouter);
 app.use("/common", commonRouter);
 app.use("/user", userRouter);
 
-
+app.get("/" , (req , res) => {
+  res.send("index route");
+});
 
 app.get("/sendMail/:otp/:mail/:username" , async (req , res) => {
   let {otp , mail , username} = req.params;
@@ -136,7 +138,8 @@ app.use((err, req, res, next) => {
 
 // Catch-all for undefined routes
 app.all("*", (req, res, next) => {
-  throw new ExpressError(500, "Page Not Found");
+  res.status(500).json({error : "page not found"});
+  // throw new ExpressError(500, "Page Not Found");
 });
 
 // Start the server
