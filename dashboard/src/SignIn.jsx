@@ -34,7 +34,7 @@ function SignIn() {
   
         const response = await apilogin(formData);
         if(response.status == 200){
-          setIsLogin((prev) => {
+          setUser((prev) => {
             return {...user};
           });
           setIsLogin(true);
