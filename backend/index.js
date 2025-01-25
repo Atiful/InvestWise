@@ -53,6 +53,7 @@ app.use(
       'http://localhost:5173',
       'http://localhost:3000',
       'http://localhost:5174/',
+      'https://investwise-dashboard.onrender.com'
       // 'https://your-domain.com', // Add production URL here
     ],
   }),
@@ -138,8 +139,8 @@ app.use((err, req, res, next) => {
 
 // Catch-all for undefined routes
 app.all("*", (req, res, next) => {
-  res.status(500).json({error : "page not found"});
-  // throw new ExpressError(500, "Page Not Found");
+  // res.status(500).json({error : "page not found"});
+  throw new ExpressError(500, "Page Not Found");
 });
 
 // Start the server
