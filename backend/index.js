@@ -70,7 +70,7 @@ app.use(session({
     ttl: 1 * 24 * 60 * 60 * 1000, 
   }),
   cookie: {
-    secure : false, 
+    secure : process.env.NODE_ENV === 'production', 
     sameSite: 'lax',
     maxAge: 1 * 24 * 60 * 60 * 1000 // Session cookie expiry (14 days in milliseconds)
   }
