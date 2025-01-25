@@ -34,9 +34,6 @@ function SignIn() {
   
         const response = await apilogin(formData);
         if(response.status == 200){
-          setUser((prev) => {
-            return {...user};
-          });
           setIsLogin(true);
           updateUser();
           navigate("/");

@@ -47,7 +47,7 @@ function Dashboard() {
 
  useEffect(() => {
     const details = async () => {
-    const info = await  HoldingsInfo(holdings);
+    const info =   HoldingsInfo(holdings);
     setHoldingDetails((prev) => {
         return {...prev , ...info};
     });
