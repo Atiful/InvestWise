@@ -1,5 +1,5 @@
 
-import { useContext , useState} from 'react';
+import { useContext, useState} from 'react';
 import {  NavLink, useNavigate } from 'react-router-dom';
 import userContext from './contextAPI/userContext';
 import { logoutUser } from './Helper/api';
@@ -7,13 +7,12 @@ function Nav() {
 
     const {user , isLogin , setUser , setIsLogin ,  updateUser} = useContext(userContext);
     const [loader , setLoader]  = useState(false);
-    const nagivate = useNavigate();
+
     const handleLogout = async () => {
         setLoader(true);
         const response  = await logoutUser();
         await  updateUser();
         if(response.data.success){
-          setIsLogin(null);
           setIsLogin(false);
           setLoader(false);
         }
@@ -34,7 +33,7 @@ function Nav() {
             <div className="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
                 <ul className="navbar-nav">
 
-                   {user && 
+                   {isLogin && 
                     <li className="nav-item">
                         <NavLink style={({ isActive }) => ({
                             color: isActive ? '#8dc6ff' : '#34495e',
