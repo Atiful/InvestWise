@@ -63,9 +63,9 @@ passport.deserializeUser(async (id, done) => {
 router.get('/', passport.authenticate('google', { scope: ['profile' , 'email'] }));
 
     router.get('/callback', 
-        passport.authenticate('google' , {failureRedirect : "http://localhost:5173/notFound"}),
+        passport.authenticate('google' , {failureRedirect : "https://investwise-dashboard.onrender.com/notFound"}),
         function(req, res) {
-          res.redirect("http://localhost:5173/");
+          res.redirect("https://investwise-dashboard.onrender.com/");
         });
 
 
