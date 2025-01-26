@@ -19,7 +19,7 @@ module.exports.userSignUp = async(req , res , error) => {
 };
 
 module.exports.login =  (req , res) => {
-    sendMail(req.user.username , "signIn", req.user.email);
+    // sendMail(req.user.username , "signIn", req.user.email);
     res.json({user : req.user});
 };
 

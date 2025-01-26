@@ -23,7 +23,7 @@ function Nav(){
                 <NavLink aria-current="page" 
                    className={({isActive}) => 
                   isActive ? "nav-link active" : "nav-link"}
-                  to = "https://investwise-dashboard.onrender.com/signUp"
+                  to = "http://localhost:5173/signUp"
                   >SignUp</NavLink>
               </li>
 
@@ -32,7 +32,7 @@ function Nav(){
                 <NavLink aria-current="page" 
                    className={({isActive}) => 
                   isActive ? "nav-link active" : "nav-link"}
-                  to = "https://investwise-dashboard.onrender.com/signIn"
+                  to = "http://localhost:5173/signIn"
                   >Login</NavLink>
               </li>
             </ul>

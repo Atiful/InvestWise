@@ -16,7 +16,7 @@ function Nav() {
           setIsLogin(false);
           setLoader(false);
         }
-        window.location.href = "https://investwise-frontend.onrender.com";
+        window.location.href = "http://localhost:5174/";
         setLoader(false);
     }
 
