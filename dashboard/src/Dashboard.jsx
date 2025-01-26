@@ -43,7 +43,7 @@ function Dashboard() {
      setHoldings(holding);
     }
     apiHolding();
- } , [user]);
+ } , [isLogin]);
 
  useEffect(() => {
     const details = async () => {

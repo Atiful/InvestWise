@@ -47,6 +47,8 @@ app.use(
   cors({
     credentials: true,
     origin: [
+      'http:localhost:3000',
+      'http:localhost:5173',
       'https://investwise-dashboard.onrender.com'
       // 'https://your-domain.com', // Add production URL here
     ],

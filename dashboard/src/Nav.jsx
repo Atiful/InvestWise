@@ -65,8 +65,8 @@ function Nav() {
                         {user?.username ? user.username : "Users"} | <i className="fa-solid fa-user"></i>
                         </a>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          {!user && <NavLink className="dropdown-item" to = "/signUp">signup</NavLink>}
-                          {!user && <NavLink className="dropdown-item" to = "/signIn">LoginIn</NavLink>}
+                          {!isLogin && <NavLink className="dropdown-item" to = "/signUp">signup</NavLink>}
+                          {!isLogin && <NavLink className="dropdown-item" to = "/signIn">LoginIn</NavLink>}
                             
                           {isLogin && <button className='btn btn-sm dropdown-item' onClick={handleLogout}>Logout</button> }
                         </div>
