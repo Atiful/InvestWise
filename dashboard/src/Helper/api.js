@@ -111,7 +111,6 @@ export const ApifindAllorderList = async (setorderList , user) => {
     try{
          let response = await axios.post("https://investwise-backend.onrender.com/order/allorder" ,  user , {withCredentials: true});
          setorderList(response.data);
-
     }
     catch(error){
         console.log(error);

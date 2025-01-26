@@ -48,7 +48,7 @@ app.use(
     credentials: true,
     origin: [
       'http://localhost:3000',
-      'http://localhost:5173/',
+      'http://localhost:5173',
       'https://investwise-backend.onrender.com',
       'https://investwise-dashboard.onrender.com'
       // 'https://your-domain.com', // Add production URL here
@@ -72,7 +72,7 @@ app.use(session({
   cookie: {
     httpOnly: true,
     sameSite : 'None',
-    secure : process.env.NODE_ENV === 'production', 
+    secure : false,
     sameSite: 'lax',
     maxAge: 1 * 24 * 60 * 60 * 1000 // Session cookie expiry (14 days in milliseconds)
   }
