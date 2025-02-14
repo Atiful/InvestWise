@@ -6,6 +6,8 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const  cors = require('cors');
 
+app.set("trust proxy", 1);
+
 const bodyParser = require('body-parser');
 
 
@@ -47,12 +49,10 @@ app.use(
   cors({
     credentials: true,
     origin: [
-      'http://localhost:3000',
-      'http://localhost:5173',
-      // 'https://investwise-backend.onrender.com',
-      'https://inverstwise-backend.onrender.com',
+      // 'http://localhost:3000',
+      // 'http://localhost:5173',
        'https://investwise-2.onrender.com',
-      // 'https://your-domain.com', // Add production URL here
+       'https://investwise-3-dashboard.onrender.com',
     ],
   }),
 );
@@ -72,26 +72,15 @@ app.use(session({
   }),
   cookie: {
     httpOnly: true,
-    // sameSite : 'none',
-    // secure : true,
-    secure : false,
-    sameSite: 'lax',
+    sameSite : 'none',
+    secure : true,
+    // secure : false,
     maxAge: 1 * 24 * 60 * 60 * 1000 // Session cookie expiry (14 days in milliseconds)
   }
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.get("/getAlluser" , async (req , res) => {
-  let alluser = await user.deleteMany({});
-  await order.deleteMany({});
-  await holding.deleteMany({});
-  const db = mongoose.connection;
-  const result = await db.collection('sessions').deleteMany({});
-  console.log(result);
-  res.send({result});
-})
 
 
 
@@ -122,19 +111,12 @@ app.get("/" , (req , res) => {
   res.send("index route");
 });
 
-app.get("/isUser" , (req , res) => {
-  // console.log(req.isAuthenticated());
-  console.log(req.user)
-res.json({user : req.user});
-});
 
 app.get("/sendMail/:otp/:mail/:username" , async (req , res) => {
   let {otp , mail , username} = req.params;
   maildetials(username , " " , mail , otp);
   res.json("sucessfull");
 });
-
-
 
 
 

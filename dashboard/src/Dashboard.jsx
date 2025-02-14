@@ -13,9 +13,13 @@ function Dashboard() {
  let [holdingDetails , setHoldingDetails] = useState({totalholding : 0 , investment : 0 , profit : 0});
 //  let [flash , setFalsh] = useState({success : '' , error : ''});
  useEffect( () => {
-    setLoader(true);
-     updateUser();
-    setLoader(false);
+   const details = async () => {
+      setLoader(true);
+      await updateUser();
+     setLoader(false);
+   }
+   details();
+    
  } , []);
 
  let handleform = (e) => {
