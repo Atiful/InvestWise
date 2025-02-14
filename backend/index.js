@@ -51,6 +51,7 @@ app.use(
       'http://localhost:5173',
       // 'https://investwise-backend.onrender.com',
       'https://inverstwise-backend.onrender.com',
+       'https://investwise-2.onrender.com',
       // 'https://your-domain.com', // Add production URL here
     ],
   }),
@@ -72,8 +73,8 @@ app.use(session({
   cookie: {
     httpOnly: true,
     // sameSite : 'none',
-    secure : true,
-    // secure : false,
+    // secure : true,
+    secure : false,
     sameSite: 'lax',
     maxAge: 1 * 24 * 60 * 60 * 1000 // Session cookie expiry (14 days in milliseconds)
   }
@@ -93,9 +94,6 @@ app.get("/getAlluser" , async (req , res) => {
 })
 
 
-app.get("/isUser" , (req , res) => {
-  res.send({user : req.user});
-});
 
 
 
@@ -122,6 +120,12 @@ app.use("/user", userRouter);
 
 app.get("/" , (req , res) => {
   res.send("index route");
+});
+
+app.get("/isUser" , (req , res) => {
+  // console.log(req.isAuthenticated());
+  console.log(req.user)
+res.json({user : req.user});
 });
 
 app.get("/sendMail/:otp/:mail/:username" , async (req , res) => {
