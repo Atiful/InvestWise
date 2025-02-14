@@ -44,6 +44,15 @@ function Nav() {
 
                     {isLogin && 
                     <li className="nav-item">
+                        <NavLink style={({ isActive }) => ({
+                            color: isActive ? '#8dc6ff' : '#34495e',
+                            fontWeight: isActive ? 'bold' : 'normal'
+                        })}
+                        className="nav-link" to = "/Watchlist">Dashboard</NavLink>
+                    </li> }
+
+                    {isLogin && 
+                    <li className="nav-item">
                         <NavLink  style={({ isActive }) => ({
                             color: isActive ? '#8dc6ff' : '#34495e',
                             fontWeight: isActive ? 'bold' : 'normal'
