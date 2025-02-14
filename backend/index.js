@@ -49,8 +49,8 @@ app.use(
     origin: [
       'http://localhost:3000',
       'http://localhost:5173',
-      'https://investwise-backend.onrender.com',
-      'https://investwise-dashboard.onrender.com',
+      // 'https://investwise-backend.onrender.com',
+      'https://inverstwise-backend.onrender.com',
       // 'https://your-domain.com', // Add production URL here
     ],
   }),
@@ -63,7 +63,7 @@ app.use(express.json());
 app.use(session({
   secret: 'keyboard cat',  
   resave: false,           
-  saveUninitialized: true, 
+  saveUninitialized: false, 
   store: MongoStore.create({
     mongoUrl: process.env.MONGO_URL,
     collectionName: 'sessions', 
@@ -71,7 +71,8 @@ app.use(session({
   }),
   cookie: {
     httpOnly: true,
-    sameSite : 'None',
+    // sameSite : 'none',
+    // secure : true,
     secure : false,
     sameSite: 'lax',
     maxAge: 1 * 24 * 60 * 60 * 1000 // Session cookie expiry (14 days in milliseconds)
@@ -90,6 +91,11 @@ app.get("/getAlluser" , async (req , res) => {
   console.log(result);
   res.send({result});
 })
+
+
+app.get("/isUser" , (req , res) => {
+  res.send({user : req.user});
+});
 
 
 

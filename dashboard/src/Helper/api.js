@@ -1,16 +1,17 @@
 import axios from "axios";
 
+// const url = 'http://localhost:30001';
 //place new order of stocks (BuyWindow.jsx)
 export const  ApiplaceBuyOrder = async(stock , quantity , price , mode , marginAllowed , user) => {
     try{
-    await axios.post("https://investwise-backend.onrender.com/order/newOrder" , {
+    await axios.post("http://localhost:3000/order/newOrder" , {
         name : stock,
         quantity : quantity,
         price : price,
         mode : mode,
         marginAllowed : marginAllowed,
         userDetails : user
-    });
+    } , {withCredentials: true});
 }
 catch(error){
     return error;
@@ -20,7 +21,7 @@ catch(error){
 // fetch holdingdata (Holding.jsx)
 export const Apifetchholdingdata = async(user) => {
     try{
-        const allholdings = await axios.post("https://investwise-backend.onrender.com/holding/allholdings" ,  user , {withCredentials: true});
+        const allholdings = await axios.post("http://localhost:3000/holding/allholdings" ,  user , {withCredentials: true});
         return allholdings.data;
         }
         catch(error){
@@ -32,7 +33,7 @@ export const Apifetchholdingdata = async(user) => {
 // fetch position data (Position.jsx)
 export const ApifetchpositionData = async(setAllPosition) => {
     try{
-        const allposition =   await axios.get("https://investwise-backend.onrender.com/allpositions");
+        const allposition =   await axios.get("http://localhost:3000/allpositions" , {withCredentials: true});
         setAllPosition(allposition.data);
         }
         catch(error){
@@ -42,7 +43,7 @@ export const ApifetchpositionData = async(setAllPosition) => {
 
 export const ApifetchSingleHolding = async(stockName , setstockQuantity , userId) => {
     try{
-    let response =  await axios.get(`https://investwise-backend.onrender.com/holding/${stockName}/${userId}`);
+    let response =  await axios.get(`http://localhost:3000/holding/${stockName}/${userId}` , {withCredentials: true});
     if(response.data.length){
         setstockQuantity(response.data[0].quantity);
         }
@@ -54,7 +55,7 @@ export const ApifetchSingleHolding = async(stockName , setstockQuantity , userId
 
 export const ApiPlaceSellOrder = async(name , quantity , price , mode , marginAllowed , user) => {
     try{
-        const response =  await axios.post("https://investwise-backend.onrender.com/order/sellorder" , {
+        const response =  await axios.post("http://localhost:3000/order/sellorder" , {
             stockSell : {
                name : name,
               quantity : quantity,
@@ -63,7 +64,7 @@ export const ApiPlaceSellOrder = async(name , quantity , price , mode , marginAl
               userDetails : user,
               marginAllowed : marginAllowed
             }
-           });
+           } , {withCredentials: true});
     }
     catch(error){
         return error;
@@ -74,7 +75,7 @@ export const ApiPlaceSellOrder = async(name , quantity , price , mode , marginAl
 
 export const ApifeatchAllWatchList = async(setwatchListdata) => {
     try{
-        let response = await  axios.get("https://investwise-backend.onrender.com/watchlist/allWatchList");
+        let response = await  axios.get("http://localhost:3000/watchlist/allWatchList");
             setwatchListdata(response.data);
     }
     catch(error){
@@ -85,7 +86,7 @@ export const ApifeatchAllWatchList = async(setwatchListdata) => {
 export const Apisearchbar = async(searchValue , setfilteredwatchlist) => {
     try{
         if(searchValue){
-        let response = await axios.get(`https://investwise-backend.onrender.com/watchlist/${searchValue}`);
+        let response = await axios.get(`http://localhost:3000/watchlist/${searchValue}`);
         setfilteredwatchlist(response.data);
         }
     }
@@ -98,7 +99,7 @@ export const Apisearchbar = async(searchValue , setfilteredwatchlist) => {
 export const ApisearchbarHolding = async(searchValue , setFilterdata , apply , user) => {
     try{
         if(searchValue){
-        let response = await axios.get(`https://investwise-backend.onrender.com/common/search/${user._id}/${apply}/${searchValue}` , user , {withCredentials: true});
+        let response = await axios.get(`http://localhost:3000/common/search/${user._id}/${apply}/${searchValue}` , user , {withCredentials: true});
         setFilterdata(response.data);
         }
     }
@@ -109,7 +110,7 @@ export const ApisearchbarHolding = async(searchValue , setFilterdata , apply , u
 
 export const ApifindAllorderList = async (setorderList , user) => {
     try{
-         let response = await axios.post("https://investwise-backend.onrender.com/order/allorder" ,  user , {withCredentials: true});
+         let response = await axios.post("http://localhost:3000/order/allorder" ,  user , {withCredentials: true});
          setorderList(response.data);
     }
     catch(error){
@@ -123,7 +124,7 @@ export const ApifindAllorderList = async (setorderList , user) => {
 export const handleApiSignUpForm = async (formData) => {
        
     try{
-        const response = await axios.post("https://investwise-backend.onrender.com/user/signUpInfo" , [formData] , {
+        const response = await axios.post("http://localhost:3000/user/signUpInfo" , [formData] , {
             withCredentials: true
         });
         return response;
@@ -136,7 +137,7 @@ export const handleApiSignUpForm = async (formData) => {
 
 export const apilogin = async (formData) => {
     try {
-      const response = await axios.post("https://investwise-backend.onrender.com/user/login", formData ,{withCredentials: true});
+      const response = await axios.post("http://localhost:3000/user/login", formData ,{withCredentials: true});
       return response;
     } catch (error) {
        return error;
@@ -145,8 +146,7 @@ export const apilogin = async (formData) => {
 
   export const isLoginOrNot =  async () => {
     try{
-       let response = await axios.get("https://investwise-backend.onrender.com/user/isLogin" ,{withCredentials: true});
-
+       let response = await axios.get("http://localhost:3000/user/isLogin" ,{withCredentials: true});
        return response;
     }
     catch(error){
@@ -157,7 +157,7 @@ export const apilogin = async (formData) => {
 
      export const  logoutUser = async () => {
         try{
-          let response = await axios.get("https://investwise-backend.onrender.com/user/logout" , {withCredentials: true});
+          let response = await axios.get("http://localhost:3000/user/logout" , {withCredentials: true});
           return response;
         }
         catch(error){
@@ -173,21 +173,21 @@ export const apilogin = async (formData) => {
             userDetails : user,
             addMoney
         };
-            let response = await axios.post("https://investwise-backend.onrender.com/user/balance" , userData , {withCredentials: true});
+            let response = await axios.post("http://localhost:3000/user/balance" , userData , {withCredentials: true});
             return response.data;
      }
 
 
 
      export const apiGoogleAuth = async () => {
-        window.location.href = "https://investwise-backend.onrender.com/auth/google";
+        window.location.href = "http://localhost:3000/auth/google";
     }
 
     
 export const apiSendMail  = async (otp , mailId , username) => {
     const otpString = otp.join("");
     try{
-       const response =  await axios.get(`https://investwise-backend.onrender.com/sendMail/${otpString}/${mailId}/${username}`);
+       const response =  await axios.get(`http://localhost:3000/sendMail/${otpString}/${mailId}/${username}`);
        console.log(response);
     }catch(error){
         return error;

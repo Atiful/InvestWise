@@ -18,12 +18,6 @@ function Dashboard() {
     setLoader(false);
  } , []);
 
-
-
-//  console.log(user);
- 
-
-
  let handleform = (e) => {
        handleformData(e , setAddMoney , setError);
  }
@@ -43,11 +37,11 @@ function Dashboard() {
      setHoldings(holding);
     }
     apiHolding();
- } , [isLogin]);
+ } , [user]);
 
  useEffect(() => {
     const details = async () => {
-    const info =   HoldingsInfo(holdings);
+    const info = await  HoldingsInfo(holdings);
     setHoldingDetails((prev) => {
         return {...prev , ...info};
     });
@@ -55,9 +49,6 @@ function Dashboard() {
     details();
     setLoader(false);
  } , [holdings]);
-
-
-
 
 
 
