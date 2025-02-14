@@ -6,6 +6,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const  cors = require('cors');
 
+app.set("trust proxy", 1);
 const bodyParser = require('body-parser');
 
 
