@@ -47,12 +47,12 @@ function Otp({email , otpGenerated , otpCheck , optCheckValue}) {
         {!optCheckValue && 
         <div className="container height-100 mt-3 d-flex justify-content-center align-items-center"> <div className="position-relative"> <div className="card p-2 text-center"> <h6>Please enter the one time password <br/> to verify your account</h6> <div> <span>A code has been sent to</span> <small>{email}</small> </div> 
         <div id="otp" className="inputs d-flex flex-row justify-content-center mt-2"> 
-                <input className="m-2 text-center form-control rounded" type = "text" id="first"  name = "first" value = {userOtp.first} onChange={handleOtpForm}/> 
-                <input className="m-2 text-center form-control rounded" type = "text" id="second"  name = "second" value = {userOtp.second} onChange={handleOtpForm} required/> 
-                <input className="m-2 text-center form-control rounded" type = "text" id="third"   name = "third" value = {userOtp.third} onChange={handleOtpForm}  required/> 
-                <input className="m-2 text-center form-control rounded" type = "text" id="fourth"  name = "fourth" value = {userOtp.fourth} onChange={handleOtpForm} required/> 
-                <input className="m-2 text-center form-control rounded" type = "text" id="fifth"  name = "fifth" value = {userOtp.fifth} onChange={handleOtpForm} required/> 
-                <input className="m-2 text-center form-control rounded" type = "text" id="sixth"  name = "sixth" value = {userOtp.sixth} onChange={handleOtpForm} required/>
+                <input className="m-2 text-center form-control rounded" type = "number" id="first"  name = "first" value = {userOtp.first} onChange={handleOtpForm}/> 
+                <input className="m-2 text-center form-control rounded" type = "number" id="second"  name = "second" value = {userOtp.second} onChange={handleOtpForm} required/> 
+                <input className="m-2 text-center form-control rounded" type = "number" id="third"   name = "third" value = {userOtp.third} onChange={handleOtpForm}  required/> 
+                <input className="m-2 text-center form-control rounded" type = "number" id="fourth"  name = "fourth" value = {userOtp.fourth} onChange={handleOtpForm} required/> 
+                <input className="m-2 text-center form-control rounded" type = "number" id="fifth"  name = "fifth" value = {userOtp.fifth} onChange={handleOtpForm} required/> 
+                <input className="m-2 text-center form-control rounded" type = "number" id="sixth"  name = "sixth" value = {userOtp.sixth} onChange={handleOtpForm} required/>
                  </div> 
                  <div className="mt-4">
                          <a className="btn btn-danger px-4 validate" onClick={handleValidateOtp} disabled = {error}>Validate</a> </div> </div> <div className="card-2"> <div className="content d-flex justify-content-center align-items-center"> </div> </div> </div>
