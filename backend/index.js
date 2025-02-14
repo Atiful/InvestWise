@@ -8,6 +8,7 @@ const  cors = require('cors');
 
 app.set("trust proxy", 1);
 
+app.set("trust proxy", 1);
 const bodyParser = require('body-parser');
 
 
@@ -51,8 +52,10 @@ app.use(
     origin: [
       // 'http://localhost:3000',
       // 'http://localhost:5173',
+      // 'https://investwise-backend.onrender.com',
+      'https://inverstwise-backend.onrender.com',
        'https://investwise-2.onrender.com',
-       'https://investwise-3-dashboard.onrender.com',
+      // 'https://your-domain.com', // Add production URL here
     ],
   }),
 );
@@ -75,6 +78,7 @@ app.use(session({
     sameSite : 'none',
     secure : true,
     // secure : false,
+    sameSite: 'lax',
     maxAge: 1 * 24 * 60 * 60 * 1000 // Session cookie expiry (14 days in milliseconds)
   }
 }));
