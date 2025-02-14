@@ -52,6 +52,7 @@ app.use(
       // 'https://investwise-backend.onrender.com',
       // 'https://inverstwise-backend.onrender.com',
        'https://investwise-2.onrender.com',
+      'https://investwise-3-dashboard.onrender.com',
       // 'https://your-domain.com', // Add production URL here
     ],
   }),
