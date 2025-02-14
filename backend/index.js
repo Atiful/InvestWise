@@ -47,10 +47,10 @@ app.use(
   cors({
     credentials: true,
     origin: [
-      'http://localhost:3000',
-      'http://localhost:5173',
+      // 'http://localhost:3000',
+      // 'http://localhost:5173',
       // 'https://investwise-backend.onrender.com',
-      'https://inverstwise-backend.onrender.com',
+      // 'https://inverstwise-backend.onrender.com',
        'https://investwise-2.onrender.com',
       // 'https://your-domain.com', // Add production URL here
     ],
@@ -72,10 +72,9 @@ app.use(session({
   }),
   cookie: {
     httpOnly: true,
-    // sameSite : 'none',
+   
     // secure : true,
-    secure : false,
-    sameSite: 'lax',
+    secure : true,
     maxAge: 1 * 24 * 60 * 60 * 1000 // Session cookie expiry (14 days in milliseconds)
   }
 }));
