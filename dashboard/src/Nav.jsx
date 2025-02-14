@@ -39,7 +39,7 @@ function Nav() {
                             color: isActive ? '#8dc6ff' : '#34495e',
                             fontWeight: isActive ? 'bold' : 'normal'
                         })}
-                        className="nav-link" to = "/">Home</NavLink>
+                        className="nav-link" to = "/">Dashboard</NavLink>
                     </li> }
 
                     {isLogin && 
@@ -48,7 +48,7 @@ function Nav() {
                             color: isActive ? '#8dc6ff' : '#34495e',
                             fontWeight: isActive ? 'bold' : 'normal'
                         })}
-                        className="nav-link" to = "/Watchlist">Wiew</NavLink>
+                        className="nav-link" to = "/Watchlist">watchlist</NavLink>
                     </li> }
 
                     {isLogin && 
@@ -60,14 +60,14 @@ function Nav() {
                         className="nav-link" to="/Orders">Orders</NavLink>
                     </li> }
 
-                     {isLogin && 
+                     {/* {isLogin && 
                     <li className="nav-item">
                         <NavLink style={({ isActive }) => ({
                             color: isActive ? '#8dc6ff' : '#34495e',
                             fontWeight: isActive ? 'bold' : 'normal'
                         })}
                         className="nav-link" to = "/Holdings">Holdings</NavLink>
-                    </li>  }
+                    </li>  } */}
 
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle username" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -76,7 +76,7 @@ function Nav() {
                         <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                           {!isLogin && <NavLink className="dropdown-item" to = "/signUp">signup</NavLink>}
                           {!isLogin && <NavLink className="dropdown-item" to = "/signIn">LoginIn</NavLink>}
-                            
+                          {isLogin && <NavLink className="dropdown-item" to = "/Holdings">Holdings</NavLink>}
                           {isLogin && <button className='btn btn-sm dropdown-item' onClick={handleLogout}>Logout</button> }
                         </div>
                     </li>
