@@ -48,7 +48,7 @@ function Nav() {
                             color: isActive ? '#8dc6ff' : '#34495e',
                             fontWeight: isActive ? 'bold' : 'normal'
                         })}
-                        className="nav-link" to = "/Watchlist">Dashboard</NavLink>
+                        className="nav-link" to = "/Watchlist">watchlist</NavLink>
                     </li> }
 
                     {isLogin && 
