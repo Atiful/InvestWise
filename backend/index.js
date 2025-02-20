@@ -53,6 +53,7 @@ app.use(
       'http://localhost:3000',
       'http://localhost:5173',
        'https://investwise-2.onrender.com',
+       'https://investwise-3-dashboard.onrender.com',
     ],
   }),
 );
