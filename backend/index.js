@@ -107,8 +107,9 @@ app.use("/holding", holdingRouter);
 app.use("/common", commonRouter);
 app.use("/user", userRouter);
 
-app.get("/" , (req , res) => {
-  res.send("index route");
+app.get("/" , async (req , res) => {
+  const all = await user.find({});
+  res.send(all);
 });
 
 
