@@ -76,7 +76,7 @@ export const ApiPlaceSellOrder = async(name , quantity , price , mode , marginAl
 
 export const ApifeatchAllWatchList = async(setwatchListdata) => {
     try{
-        let response = await  axios.get("https://investwise-2.onrender.com/watchlist/allWatchList");
+        let response = await  axios.get("https://investwise-2.onrender.com/watchlist/allWatchList" , {withCredentials: true});
             setwatchListdata(response.data);
     }
     catch(error){
@@ -87,7 +87,7 @@ export const ApifeatchAllWatchList = async(setwatchListdata) => {
 export const Apisearchbar = async(searchValue , setfilteredwatchlist) => {
     try{
         if(searchValue){
-        let response = await axios.get(`https://investwise-2.onrender.com/watchlist/${searchValue}`);
+        let response = await axios.get(`https://investwise-2.onrender.com/watchlist/${searchValue}` , {withCredentials: true});
         setfilteredwatchlist(response.data);
         }
     }
@@ -188,7 +188,7 @@ export const apilogin = async (formData) => {
 export const apiSendMail  = async (otp , mailId , username) => {
     const otpString = otp.join("");
     try{
-       const response =  await axios.get(`https://investwise-2.onrender.com/sendMail/${otpString}/${mailId}/${username}`);
+       const response =  await axios.get(`https://investwise-2.onrender.com/sendMail/${otpString}/${mailId}/${username}` , {withCredentials: true});
        console.log(response);
     }catch(error){
         return error;
