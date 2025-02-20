@@ -24,7 +24,7 @@ function Watchlist() {
      useEffect(() =>  {
             ApifeatchAllWatchList(setwatchListdata);
             setLoader(false);
-        } , []);
+        } , [watchlistdata]);
 
 
      const Watchlistdata = checksearchActive ? filteredwatchlist : watchlistdata;

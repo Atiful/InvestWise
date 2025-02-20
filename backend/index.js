@@ -108,7 +108,7 @@ app.use("/common", commonRouter);
 app.use("/user", userRouter);
 
 app.get("/" , async (req , res) => {
-  const all = await user.find({});
+  const all = await watchlist.find({});
   res.send(all);
 });
 

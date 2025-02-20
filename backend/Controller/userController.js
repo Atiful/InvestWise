@@ -6,9 +6,7 @@ module.exports.userSignUp = async(req , res , error) => {
     let registerUser = await user.register(formData , formData.password);
     if(registerUser){
         // used to send mail
-        
         sendMail(formData.username , "signUp", formData.email);
-
     req.login(registerUser , (error) => {
         return res.json({registerUser , success : true , error : null});
     });
