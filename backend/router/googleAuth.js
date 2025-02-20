@@ -11,14 +11,14 @@ const sendMail = require("../config/mailConfig.js");
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "https://investwise-backend.onrender.com/auth/google/callback"
+  callbackURL: "https://investwise-2.onrender.com/auth/google/callback"
 },
 async (accessToken, refreshToken , profile, cb) => {
   let userDetails = await user.findOne({email : profile.emails[0].value});
   if(userDetails){
      
     // sending mail
-    // sendMail(userDetails.username , "signIn" , userDetails.email);
+    sendMail(userDetails.username , "signIn" , userDetails.email);
 
     return cb(null , userDetails);
   }
@@ -37,7 +37,7 @@ async (accessToken, refreshToken , profile, cb) => {
     });
     const savedUser = await newUser.save();
 
-    // sendMail(savedUser.username , "signUp" , savedUser.email);
+    sendMail(savedUser.username , "signUp" , savedUser.email);
 
     return cb(null, savedUser); 
   }
@@ -63,9 +63,9 @@ passport.deserializeUser(async (id, done) => {
 router.get('/', passport.authenticate('google', { scope: ['profile' , 'email'] }));
 
     router.get('/callback', 
-        passport.authenticate('google' , {failureRedirect : "https://investwise-dashboard.onrender.com/notFound"}),
+        passport.authenticate('google' , {failureRedirect : "https://investwise-3-dashboard.onrender.com/notFound"}),
         function(req, res) {
-          res.redirect("https://investwise-dashboard.onrender.com/");
+          res.redirect("https://investwise-3-dashboard.onrender.com/");
         });
 
 
