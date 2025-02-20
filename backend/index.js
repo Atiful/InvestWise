@@ -91,7 +91,6 @@ main().catch(err => console.log(err));
 
 async function main() {
   await mongoose.connect(mongo_uri, { connectTimeoutMS: 30000 });
-  console.log("database connect suessfull");
 }
 
 
@@ -109,8 +108,7 @@ app.use("/common", commonRouter);
 app.use("/user", userRouter);
 
 app.get("/" , async (req , res) => {
-  const all = await watchlist.find({});
-  res.send(all);
+  res.send("index route");
 });
 
 

@@ -96,12 +96,9 @@ export const HoldingsInfo = (holdings) => {
 
 
 export const generateRandomNumber = () => {
-    let random =[];
-    random[0] = Math.floor(Math.random() * 10);
-    random[1] = Math.floor(Math.random() * 10);
-    random[2] = Math.floor(Math.random() * 10);
-    random[3] = Math.floor(Math.random() * 10);
-    random[4] = Math.floor(Math.random() * 10);
-    random[5] = Math.floor(Math.random() * 10);
-    return random;
+    let random = [];
+    for (let i = 0; i < 6; i++) {
+        random[i] = Math.floor(Math.random() * 10);
+    }
+    return random.join("");
 }

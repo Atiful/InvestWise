@@ -38,8 +38,8 @@ function Footer() {
       </div>
 
       <div className="row mt-4 footer-text  p-3">
-        <p>Dive into the world of trading without the risk! At InvestEdge, we provide a virtual trading platform designed to help you learn, practice, and refine your trading skills in a simulated environment. No real money or trading is involved, making it the perfect space for beginners and enthusiasts to explore the market safely.
-Empower your financial journey with InvestEdge today!</p>
+        <p>Dive into the world of trading without the risk! At <b>StockWise</b>, we provide a virtual trading platform designed to help you learn, practice, and refine your trading skills in a simulated environment. No real money or trading is involved, making it the perfect space for beginners and enthusiasts to explore the market safely.
+Empower your financial journey with <b>StockWise</b> today!</p>
       </div>
     </div>
 

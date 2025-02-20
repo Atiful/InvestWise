@@ -385,14 +385,7 @@ border-right: 1px solid black;
 a{
   color: rgb(25, 18, 18);
 }
-/* .flash{
-  position: fixed;
-  top : 100px;
-  left : 10px;
-  height : 200px;
-  width : 1000px;
-  background-color: black;
-} */
+
 
 
 /* dashboard */
@@ -484,11 +477,13 @@ a{
   justify-content: space-between;
 }
 
-/* #analytics{
-   
-} */
+
 .logo img{
   height : 2.3rem;
   width : 2.3rem;
   border-radius: 50%;
+}
+
+.btn-holding{
+  font-size: 0.8rem;
 }

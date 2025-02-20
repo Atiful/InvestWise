@@ -135,6 +135,10 @@
     border : 1px solid rgba(0, 0, 0, 0.735);
     border-radius: 1rem;
 }
+
+#frontImg img{
+    min-width: 40vh;
+}
 .logo img{
     height : 2.3rem;
     width : 2.3rem;

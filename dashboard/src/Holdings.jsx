@@ -48,12 +48,11 @@ const labels = allHoldings.map((curr) => curr.name);
            {loader && <Loader></Loader>}
 
            <div className="holding-button container-fluid">
-           <button type="button" className="btn btn-dark mt-3 mx-4">
+           <button type="button" className="btn btn-dark mt-3 mx-4 btn-holding">
                Holdings <span className="badge badge-light">{holdingData.length}</span>
-               <span className="sr-only">unread messages</span>
              </button>
              <a href="#analytics">
-               <button className="btn btn-info mt-3 mx-4">View Analytics</button>
+               <button className="btn btn-info mt-3 mx-4 btn-holding">View Analytics</button>
              </a>
            </div>
            

@@ -15,7 +15,7 @@ function SignUp() {
     let [isLoading , setIsLoading] = useState(false);
     const {user , isLogin , setUser , setIsLogin} = useContext(userContext);
     const [isValidate , setIsValidate] = useState(false);
-    const [otp , setOtp] = useState([]);
+    const [otp , setOtp] = useState();
     let [otpchecking , setotpchecking] = useState(false);
 
 
@@ -38,7 +38,7 @@ function SignUp() {
       setIsLoading(true);
       // generate a otp
      let random =  generateRandomNumber();
-     setOtp([random]);
+     setOtp(random);
      await apiSendMail(random , formData.email , formData.username);
       setIsValidate(true);
        setIsLoading(false);
