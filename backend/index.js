@@ -92,6 +92,7 @@ main().catch(err => console.log(err));
 
 async function main() {
   await mongoose.connect(mongo_uri, { connectTimeoutMS: 30000 });
+  console.log("database connect suessfull");
 }
 
 
